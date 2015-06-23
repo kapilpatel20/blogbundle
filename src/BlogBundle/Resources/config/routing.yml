@@ -1,0 +1,23 @@
+blog_homepage:
+    path:     /
+    defaults: { _controller: BlogBundle:Security:login}
+
+fos_login:
+    path:     /login
+    defaults: { _controller: BlogBundle:Security:login }
+    
+blog_list:
+    path:     /blog-list
+    defaults: { _controller: BlogBundle:Blog:index }
+
+blog_new:
+    path:     /blog/new
+    defaults: { _controller: BlogBundle:Blog:new}
+    
+blog_edit:
+    path:     /blog/edit/{id}
+    defaults: { _controller: BlogBundle:Blog:edit}    
+    
+blog_delete:
+    path:     /blog/delete/{id}
+    defaults: { _controller: BlogBundle:Blog:delete}    

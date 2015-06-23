@@ -1,0 +1,14 @@
+BlogBundle\Entity\Blog:
+    properties:
+        title:
+            - NotBlank:
+                message: "Please enter blog title."        
+                
+        description:
+            - NotBlank:
+                message: "Please enter blog description." 
+                
+        status:
+            - NotBlank:
+                message: "Please select status."
+                

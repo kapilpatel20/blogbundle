@@ -1,0 +1,60 @@
+{% extends "BlogBundle::layout.html.twig" %}
+{% block body %}
+{% block fos_user_content %}
+{% include "BlogBundle::flashMessage.html.twig" %}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 h3">
+            Blog Listing 
+        </div>
+        <div class="col-md-4" style='margin-top: 20px'><a class="pull-right" href="{{path('fos_user_security_logout')}}">Logout</a></div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+        <a class="btn btn-primary pull-right" href="{{path('blog_new')}}">Add New Blog</a>
+        </div>
+    </div>
+    <div class="row">
+        
+        <div class="col-md-10">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Blog Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for blog in objBlog %}
+                    <tr>
+                        <td>{{blog.id}}</td>
+                        <td>{{blog.title}}</td>
+                        <td>{{blog.Description|raw}}</td>
+                        <td>{{ blog.status?'Active':'Inactive' }}</td>
+                        <td>
+                            <a href="{{path('blog_edit', {'id': blog.id})}}">Edit</a>
+                            |
+                            <a href="{{path('blog_delete', {'id': blog.id})}}">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+</div>
+{% endblock fos_user_content %}
+
+{% endblock body %}
+
+{% block javascripts %}
+{{ parent() }}
+
+{% endblock javascripts %}
+

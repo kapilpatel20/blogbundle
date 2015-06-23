@@ -1,0 +1,257 @@
+{% extends "BviAdminBundle::layout.html.twig" %}
+{% block css %}
+    {{parent()}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/bviadmin/js/bootstrap-fileupload/bootstrap-fileupload.min.css') }}" >
+    
+{% endblock css %}
+
+{% block stylesheet %}
+        
+{% endblock stylesheet %}
+{% block body %}
+<!-- PAGE HEADER-->
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-header">
+            <!-- BREADCRUMBS -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="fa fa-home"></i>
+                    <a href="{{ path('admin_dashboard')}}">Dashboard</a>
+                </li>
+                <li>
+                    <a href="{{ path('admin_advertisement_list')}}">List Advertisement</a>
+                </li>
+                
+                <li>
+                    Add Advertisement
+                </li>
+            </ul>
+            <!-- /BREADCRUMBS -->
+            <div class="clearfix">
+                <h3 class="content-title pull-left">Add Advertisement</h3>
+            </div>
+            <div class="description"></div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+           {% include "BviAdminBundle::flashMessage.html.twig" %}
+        <!-- BOX -->
+        <div class="box border primary" id="formWizard">
+            <div class="box-title">
+                <h4><i class="fa fa-bars"></i>Add Advertisement</h4>
+            </div>
+            <div class="box-body form">
+                <form action="{{ path('admin_advertisement_add') }}" {{ form_enctype(form) }} method="POST" class="form-horizontal" id="advertisement" novalidate>
+
+                    <div class="wizard-form">
+                        <div class="wizard-content">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="account">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">Name<span class="">*</span></label>
+                                        <div class="col-md-4">
+                                                {{ form_widget(form.name, { 'attr': {'class': 'form-control', 'placeholder': 'Advertisement name'}}) }}
+                                            <span class="error-span">{% if form_errors(form.name) %}{{ form_errors(form.name) }}{% endif %}</span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">Type<span class="">*</span></label>
+                                        <div class="col-md-4">
+                                                {{ form_widget(form.type, { 'attr': {'class': 'form-control', 'placeholder': ''}}) }}
+                                            <span class="error-span">{% if form_errors(form.type) %}{{ form_errors(form.type) }}{% endif %}</span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">Delay Between Advertise:<span class="required">*</span></label>
+                                        <div class="col-md-4">
+                                                {{ form_widget(form.frequency, { 'attr': {'class': 'form-control', 'placeholder' : 'Frequency'}}) }}
+                                            <span class="error-span">{% if form_errors(form.frequency) %}{{ form_errors(form.frequency) }}{% endif %}</span>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">Url<span class="required">*</span></label>
+                                        <div class="col-md-4">
+                                                {{ form_widget(form.url, { 'attr': {'class': 'form-control', 'placeholder': 'Url'}}) }}
+                                            <span class="error-span">{% if form_errors(form.url) %}{{ form_errors(form.url) }}{% endif %}</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">Image<span class="required">*</span></label>
+                                        <div class="col-md-4">
+                                                {{ form_widget(form.imageName, { 'attr': {'class': 'form-control file-input', 'placeholder': ''}}) }}
+                                            <span class="error-span">{% if form_errors(form.imageName) %}{{ form_errors(form.imageName) }}{% endif %}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">Button Position - X Coordinate:<span class="required">*</span></label>
+                                        <div class="col-md-4">
+                                                {{ form_widget(form.positionX, { 'attr': {'class': 'form-control', 'placeholder': 'Position - X'}}) }}
+                                            <span class="error-span">{% if form_errors(form.positionX) %}{{ form_errors(form.positionX) }}{% endif %}</span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">Button Position - Y Coordinate:<span class="required">*</span></label>
+                                        <div class="col-md-4">
+                                                {{ form_widget(form.positionY, { 'attr': {'class': 'form-control', 'placeholder': 'Position - Y'}}) }}
+                                            <span class="error-span">{% if form_errors(form.positionY) %}{{ form_errors(form.positionY) }}{% endif %}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">Priority:<span class="required">*</span></label>
+                                        <div class="col-md-4">
+                                                {{ form_widget(form.priority, { 'attr': {'class': 'form-control', 'placeholder': 'Priority'}}) }}
+                                            <span class="error-span">{% if form_errors(form.priority) %}{{ form_errors(form.priority) }}{% endif %}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">Status:<span class="required">*</span></label>
+                                        <div class="col-md-4">
+                                                {{ form_widget(form.status, { 'attr': {'class': 'form-control', 'placeholder': ''}}) }}
+                                            <span class="error-span">{% if form_errors(form.status) %}{{ form_errors(form.status) }}{% endif %}</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="wizard-buttons">
+                                {{form_rest(form)}}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-offset-2 col-md-8">
+                                        <input type="submit" value="Submit" class="btn btn-primary nextBtn">
+
+                                        <a href="{{path('admin_advertisement_list')}}" class="btn btn-default prevBtn">
+                                            <i class="fa fa-arrow-circle-left"></i> Back 
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /BOX -->
+
+    </div>
+
+</div>
+
+<!-- /PAGE HEADER -->
+{% endblock body %}
+{% block javascripts %}
+    {{ parent() }}
+
+<!-- BOOTSTRAP WYSIWYG -->
+<script type="text/javascript" src="{{ asset('bundles/bviadmin/js/ckeditor/ckeditor.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/bviadmin/js/jquery-validate/jquery.validate.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/bviadmin/js/jquery-validate/additional-methods.min.js') }}"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#advertisement').validate({
+            ignore: [],
+            rules: {
+                "bvi_admin_advertisement[name]": {
+                    "required": true
+                },
+                "bvi_admin_advertisement[type]": {
+                    "required": true
+                },
+                "bvi_admin_advertisement[frequency]": {
+                    "required": true,
+                    "number": true,
+                    "min": 1,
+                    "max": 24
+                },
+                "bvi_admin_advertisement[imageName]": {
+                    "required": true,
+                     accept: "image/jpg,image/jpeg,image/png,image/gif"
+                },
+                "bvi_admin_advertisement[url]": {
+                    "required": true,
+                    "url" : true
+                },
+                "bvi_admin_advertisement[positionX]": {
+                    "required": true,
+                    "number": true
+                },
+                "bvi_admin_advertisement[positionY]": {
+                    "required": true,
+                    "number": true
+                },
+                "bvi_admin_advertisement[priority]": {
+                    "required": true,
+                    "number": true
+                },
+                "bvi_admin_advertisement[status]": {
+                    "required": true
+                }
+
+            },
+            messages: {
+                "bvi_admin_advertisement[name]": {
+                    "required": "Please enter name"
+                },
+                "bvi_admin_advertisement[type]": {
+                    "required": "Please select type"
+                },
+                "bvi_admin_advertisement[frequency]": {
+                    "required": "Please enter frequency",
+                    "number": "Please enter valid number",
+                    "min" : "Please enter a value less than or equal to 1",
+                    "max" : "Please enter a value less than or equal to 24"
+                },
+                "bvi_admin_advertisement[imageName]": {
+                    "required": "Please select images",
+                    "accept": "Allow only image file"
+                },
+                "bvi_admin_advertisement[url]": {
+                    "required": "Please enter url"
+                },
+                "bvi_admin_advertisement[positionX]": {
+                    "required": "Please enter x position",
+                    "number": "Please enter valid number"
+                    
+                },
+                "bvi_admin_advertisement[positionY]": {
+                    "required": "Please enter y position",
+                    "number": "Please enter valid number"
+                    
+                },
+                "bvi_admin_advertisement[priority]": {
+                    "required": "Please enter priority",
+                    "number": "Please enter valid number"
+                    
+                },
+                "bvi_admin_advertisement[status]": {
+                    "required": "Please select status"
+                }
+            }
+        });
+    });
+</script>
+
+{% endblock javascripts %}
+
+
+
+

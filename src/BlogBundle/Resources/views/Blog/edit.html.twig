@@ -1,0 +1,72 @@
+{% extends "BlogBundle::layout.html.twig" %}
+{% block css %}    
+{{ parent() }}
+<style type='text/css'>
+    .error-span ul li{list-style: none;}
+    .error-span ul{padding-left:0;}
+</style>
+{% endblock css %}
+{% block body %}
+
+
+<div class="container">
+
+        <div class="row">
+        <div class="col-md-6 h3">
+            Blog Edit
+        </div>
+        </div>
+
+    <div class="row">
+            <div class="col-md-10">
+                <form action="{{ path('blog_edit', {'id': id}) }}" {{ form_enctype(form) }} method="POST" class="form-horizontal" id="blog_add" novalidate>
+                    <div class="tab-pane active" id="account">
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Title<span class="">*</span></label>
+                            <div class="col-md-6">
+                                    {{ form_widget(form.title, { 'attr': {'class': 'form-control', 'placeholder': 'Blog Title'}}) }}
+                                <span class="error-span text-danger">{% if form_errors(form.title) %}{{ form_errors(form.title) }}{% endif %}</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Description<span class="">*</span></label>
+                            <div class="col-md-6">
+                                    {{ form_widget(form.description, { 'attr': {'placeholder': 'Description'}}) }}
+                                <span class="error-span text-danger">{% if form_errors(form.description) %}{{ form_errors(form.description) }}{% endif %}</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Status<span class="">*</span></label>
+                            <div class="col-md-6">
+                                    {{ form_widget(form.status, { 'attr': {'class': 'form-control', 'placeholder': 'Status'}}) }}
+                                <span class="error-span text-danger">{% if form_errors(form.status) %}{{ form_errors(form.status) }}{% endif %}</span>
+                            </div>
+                        </div>
+
+                        <div class="wizard-buttons">
+                                {{form_rest(form)}}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-offset-2 col-md-8">
+                                        <input type="submit" value="Submit" class="btn btn-primary nextBtn">
+
+                                        <a href="{{path('blog_list')}}" class="btn btn-default prevBtn">
+                                            <i class="fa fa-arrow-circle-left"></i> Back 
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    </form>
+            </div>
+    </div>
+</div>
+{{ tinymce_init() }}
+<!-- /PAGE HEADER -->
+{% endblock body %}
+{% block javascripts %}
+    {{ parent() }}
+{% endblock javascripts %}
