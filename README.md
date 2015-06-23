@@ -1,18 +1,19 @@
-# blogbundle
-Blog bundle sample code 
 
-Steps to run the project
 
-1) Create clone or download with git
+<P STYLE="margin-bottom: 0in"><FONT SIZE=4><B>Blog bundle sample code
+using symfony 2.3 </B></FONT><BR><BR><BR><FONT SIZE=3><B>Steps to Run
+the project</B></FONT></P>
 
-2) run composer update command
+<P STYLE="margin-bottom: 0in"><BR>    
+1) Create clone or download
+with git<BR><BR>   
+2) Run composer update command<BR><BR>    
+3) Run
+app/console doctrine:schema:update --force<BR><BR>    
+4) Run php
+app:console assets:install<BR><BR><BR>
 
-3) run app/console doctrine:schema:update --force
-
-4) run php app:console assets:install
-
-We have used following third party bundle
-
-1) "stfalcon/tinymce-bundle": "dev-master"
-
-2) "friendsofsymfony/user-bundle": "~2.0@dev"
+<B>We have used following third
+party bundle</B><BR><BR>    1) &quot;stfalcon/tinymce-bundle&quot;:
+&quot;dev-master&quot;<BR><BR>    2) &quot;friendsofsymfony/user-bundle&quot;:
+&quot;~2.0@dev&quot;</P>
