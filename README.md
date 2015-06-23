@@ -15,8 +15,9 @@ Steps to run the project
 
 We have used following third party bundle
 
-"stfalcon/tinymce-bundle": "dev-master"
-"friendsofsymfony/user-bundle": "~2.0@dev"
+1) "stfalcon/tinymce-bundle": "dev-master"
+
+2) "friendsofsymfony/user-bundle": "~2.0@dev"
 
 
 
